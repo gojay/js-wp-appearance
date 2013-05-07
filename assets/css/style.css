@@ -1,0 +1,292 @@
+.alpha {
+	margin-left: 0 !important;
+}
+
+.omega {
+	margin-right: 0 !important;
+}
+
+.quarter {
+	width: 25% !important;
+}
+
+.half {
+	width: 50% !important;
+}
+
+.full {
+	width: 98% !important;
+}
+
+.small {
+	width: 65px !important;
+}
+
+.alignleft {
+	float: left !important;
+	text-align: left !important;
+}
+
+.left {
+	text-align: left !important;
+}
+
+.center {
+	text-align: center !important;
+}
+
+.right {
+	text-align: right !important;
+}
+
+.alignright {
+	float: right !important;
+	text-align: right !important;
+}
+
+/* === Portlet Style === */
+
+.portlet.ui-widget-content {
+	border-radius: 4px 4px 4px 4px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+	margin-bottom: 18px;
+	vertical-align: top;
+}
+
+.portlet.ui-widget-content a {
+	margin-top: 7px;
+	font-size: 11px;
+	color: #0088CC;
+}
+
+.portlet.ui-widget-content input, 
+.portlet.ui-widget-content select,
+.portlet.ui-widget-content textarea,
+.portlet.ui-widget-content button {
+	font-size: 11px;
+}
+
+.portlet.ui-corner-all,
+.portlet-header.ui-corner-all {
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.portlet-header {
+	padding: 0 9px;
+	cursor: move;
+}
+
+.portlet-header.ui-widget-header {
+	min-height: 20px;
+	background: #F0F0EE;
+    /*border-bottom: 1px solid #AAAAAA;*/
+}
+
+.portlet-header .ui-icon {
+	float: right;
+	cursor: pointer;
+}
+
+.portlet-header h3 {
+	font-size: 13px;
+	margin: 0;
+}
+
+.portlet-inside .help-block {
+	font-size: 11px;
+}
+
+.portlet-inside .table {
+	border: 1px solid #DDD;
+}
+
+.portlet-inside .table th {
+	background: #F5F5F5;
+	border-bottom: 1px solid #DDD;
+	font-size: 12px;
+	padding: 5px 8px;
+	text-align: center;
+}
+
+.portlet-inside .table td {
+	border: 0;
+}
+
+.portlet-inside .table input,
+		.portlet-inside .table select {
+	margin-bottom: 10px;
+}
+
+.portlet-inside .table tbody tr:hover td {
+	background-color: transparent;
+}
+		
+/* === Portlet Style === */
+	
+.portlet.ui-corner-all,
+.portlet-header.ui-corner-all {
+	border-radius: 0;
+}
+
+.portlet-header {
+	cursor: move;
+}
+
+.ui-widget-header {
+	background-color: #F5F5F5;
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	border-radius: 4px 4px 4px 4px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+	min-height: 20px;
+}
+
+.portlet-header .ui-icon {
+	float: right;
+	cursor: pointer;
+	margin-left: 5px;
+}
+
+.portlet-header h4 {
+	font-size: 12px;
+	margin: 3px 0;
+}
+
+.portlet-description, .portlet-message {
+	font-size: 11px !important;
+	padding: 1em;
+}
+
+.portlet-message a {
+	font-size: 11px !important;
+}
+
+.portlet-inside li {
+	padding: 5px 0;
+}
+
+.portlet-inside #response_msg {
+	margin: 0 10px 10px;
+}
+
+.portlet-form {
+	margin-top: 0;
+	line-height: 18px;
+}
+
+.portlet-form form {
+	margin: 0;
+}
+
+.portlet-form label {
+	display: block;
+	font-weight: normal;
+	font-size: 11px;
+}
+
+.portlet-form label.smalllabel {
+	display: inline;
+}
+
+.portlet-form input[type="text"].count {
+	width: 15px;
+}
+
+.portlet-form #widget-control .alignleft {
+	margin-top: 10px;
+}
+		
+/* WIDGETS */
+
+.ajax-loader-widget {
+	/*padding-left: 10px;*/
+	background: transparent;
+	border: medium none;
+	visibility: hidden;
+	vertical-align: middle;
+}
+
+.widget-placeholder {
+	height: 26px;
+	width: 100%;
+	margin: 0 auto 20px;
+	border-width: 1px;
+	border-style: dashed;
+	background-color: yellow;
+}
+
+#widgets {
+	margin: 10px 0;
+}
+
+#widgets .portlet-form select {
+	width: 100%;
+}
+
+.widgets-column h3 {
+	line-height: 18px;
+	padding: 5px 0;
+}
+
+#available-widget .info {
+	font-size: 12px;
+	font-style: italic;
+	line-height: 1.8em;
+	padding-left: 10px;
+}
+#available-widget .portlet {
+	display: inline-block;
+	overflow: hidden;
+	margin: 0 5px 15px;
+}
+#available-widget .portlet a.ui-icon {
+	display: none;
+}
+
+#available-widget .portlet-inside,
+.widgets-sortables .portlet-inside {
+	padding: 10px;
+}
+
+#removing-widget {
+	display: none;
+	color: #D54E21;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 1;
+	padding-left: 15px;
+}
+
+#removing-widget span {
+	color: black;
+}
+
+#removing-widget h3 span {
+	font-weight: normal;
+}
+
+.widget-holder-wrap {
+	margin-bottom: 10px;
+}
+
+.widgets-column .portlet-header {
+	padding: 4px 9px;
+}
+
+.widgets-sortables, .widget-holder {
+	padding: 15px 10px;
+}
+
+.widgets-sortables .portlet {
+	position: relative !important;
+	margin: 0 auto 20px;
+	overflow: hidden;
+}
+
+.widgets-sortables .portlet:last-child {
+	margin-bottom: 0;
+}
+
+.widgets-sortables .portlet-inside {
+	font-size: 12px;
+}
