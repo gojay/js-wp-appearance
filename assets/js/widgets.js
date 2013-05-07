@@ -88,7 +88,8 @@ var Widgets;
 					// dan sesuaikan lebar
 					ui.helper.css({'height':'36px', 'min-width':'227px'}).removeClass('span4');
 
-
+					// set widget id
+					wid = this.id;
 				},
 				stop: function(event, ui) {
 					/* =================== debug ======================== */
@@ -110,9 +111,10 @@ var Widgets;
 
 					// tambah class 'deleteing'
 					// sbg tanda aksi hapus widget
-
+					ui.draggable.addClass("deleting");
 
 					// hidden info remove widget pd header
+					$("#removing-widget").hide().children("span").html("");
 
 				},
 				over: function(event, ui) {
@@ -122,14 +124,16 @@ var Widgets;
 
 					// tambah class 'deleteing'		
 					// sbg tanda aksi hapus widget
-
+					ui.draggable.addClass("deleting");
 
 					// hidden widget placeholder
-
+					$("div.widget-placeholder").hide();
 
 					// tampilkan info remove widget pd header
-
-
+					if (ui.draggable.hasClass("ui-sortable-helper")) {
+						var title = $(".portlet-header", ui.draggable).children("h4").html();
+						$("#removing-widget").show().find("span").html(title);
+					}
 				},
 				out: function(event, ui) {
 					/* =================== debug ======================== */
@@ -137,10 +141,13 @@ var Widgets;
 					/* ================================================== */
 
 					// hapus class 'deleting'
+					ui.draggable.removeClass("deleting");
 
 					// tampilkan widget placeholder
+					$("div.widget-placeholder").show();
 
 					// hidden info remove widget pd header 
+					$("#removing-widget").hide().children("span").html("");
 
 				}
 			});
@@ -176,13 +183,19 @@ var Widgets;
 
 					// [drop delete], 
 					// aksi hapus widget dgn droppable
-					// jika item memiliki class "deleting"   
-
+					// jika item memiliki class "deleting"  
+					if (ui.item.hasClass("deleting")) {
+						// hapus item
+						self.del(ui.item, 0, 1);
+						return;
+					}
 
 					// [drag add], 
 					// hapus class "ui-draggable"
 					// jika item memiliki class "ui-draggable"
-
+					if (ui.item.hasClass("ui-draggable")) {
+						ui.item.removeClass("ui-draggable");
+					}
 
 					// [drag add], 
 					// aksi tambah widget
@@ -193,31 +206,35 @@ var Widgets;
 						$('.portlet-description', ui.item).remove();
 
 						// ubah item ID [widget_id]-[position] dengan variabel multi
-
+						ui.item.attr("id", wid + '-' + multi);
 
 						// increase value multi
 						// ubah value input.multi
-
+						multi++;
+						$('#available-widget #' + wid).find('input.multi').val(multi);
 
 						// slideDown widget setelah ditambahkan (dgn click 'ui-icon')
 						$('a.ui-icon', ui.item).click();
 
 						// hapus semua input hidden
-
+						ui.item.each(function(i,e) {
+							$('input[type=hidden]', e).remove();
+						});
 
 						// kosongkan value input hidden 'add', 
 						// jadi, untuk event selanjutnya adalah sortable widget,
 						// bukan draggable widget / drag add
-
+						$('input.add', ui.item).val('');
 
 						// save widget
-
+						self.save(ui.item, 1, 0);
 
 						// selesai disini, tanpa saveOrder
 						return;
 					}
 
 					// aksi sortorder : save order
+					self.saveOrder(ui.item.parent(), 1);
 				},
 				receive: function(event, ui) {
 					/* =================== debug ======================== */
@@ -225,6 +242,7 @@ var Widgets;
 					/* ================================================== */
 
 					// set value multi, digunakan untuk ubah item ID
+					multi = $('.multi', ui.helper).val();
 				}
 			});
 		},
@@ -232,19 +250,19 @@ var Widgets;
 		/* Save Order */
 
 		saveOrder: function(item, loader) {
-			console.log('%cSAVE ORDER', self.styles.blue);
+			console.log('%cSAVE ORDER', this.styles.blue);
 		},
 
 		/* Save */
 
 		save: function(item, add, del) {
-			console.log('%cSAVE', self.styles.blue);
+			console.log('%cSAVE', this.styles.blue);
 		},
 
 		/* Delete */
 
 		del: function(item, slide, drop) {
-			console.log('%cDELETE', self.styles.red);
+			console.log('%cDELETE', this.styles.red);
 		},
 
 		/* Close */
